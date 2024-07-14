@@ -15,7 +15,7 @@ export const getProfile = async (token) => {
 
     return data;
   } catch (error) {
-    console.log(error, "Error fetching profile");
+    console.log(error, "Error retrieving profile");
   }
 };
 
@@ -87,7 +87,7 @@ export const updateUserById = async (data, token) => {
 };
 
 export const deleteUserById = async (id, token) => {
-  console.log(id, token");
+  console.log(id, token, "delete user");
   const options = {
     method: "DELETE",
     headers: {

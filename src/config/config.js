@@ -1,5 +1,1 @@
-const config = {
-    apiEndpoint: 'http://localhost:4000',
-};
-
-export default config;
+export const BASE_URL = 'http://localhost:4000/api/';
