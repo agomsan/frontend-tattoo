@@ -1,4 +1,4 @@
-const BASE_URL = "http://127.0.0.1:4000/api/auth/";
+const BASE_URL = "http://localhost:4000/api/auth";
 const authService = {
   register: async function (payload) {
     return new Promise((resolve) => {

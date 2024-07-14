@@ -1,15 +1,19 @@
 import React from 'react';
 import './App.css';
-import DataComponent from './components/DataComponent';
+import {Header} from "./components/layout/Header";
+import {Footer} from "./components/layout/Footer";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
+      <header className="Header">
         <h1>SURFING WORLD TATTOO STUDIO</h1>
-        <DataComponent/>
       </header>
+      <footer className='Footer'></footer>
     </div>
+   
   );
 }
 
