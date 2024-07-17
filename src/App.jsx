@@ -1,10 +1,26 @@
-import React from 'react';
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import Gallery from "./pages/Gallery/Gallery";
+import Register from "./pages/Register/Register";
+import Profile from "./pages/Profile/Profile";
+import Admin from "./pages/Admin/Admin";
+import About from "./pages/About/About";
+import Appointments from "./pages/appointments/Appointments";
 
 function App() {
   return (
-    <div>
-      {/* Your app content goes here */}
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="Login" element={<Login />} />
+      <Route path="Gallery" element={<Gallery />} />
+      <Route path="Register" element={<Register />} />
+      <Route path="Profile" element={<Profile />} />
+      <Route path="Admin" element={<Admin />} />
+      <Route path="Appointments" element={<Appointments />} />
+      <Route path="About" element={<About />} />
+    </Routes>
   );
 }
 

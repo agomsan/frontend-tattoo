@@ -44,3 +44,4 @@ export const login = async (credentials) => {
       console.log(error, "Not registered");
     }
   };
+  

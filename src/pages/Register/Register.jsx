@@ -28,13 +28,13 @@ function Register() {
     <div>
       <h1>Register</h1>
       <input
-        type="USUARIO"
+        type="USER"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
       <input
-        type="CONTRASEÑA"
+        type="PASSWORD"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}

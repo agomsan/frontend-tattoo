@@ -41,7 +41,7 @@ export const createService = async (serviceData, token) => {
   };
 
   export const updateServiceId = async (data, token) => {
-    console.log(data, token, "data y token en updateServiceById");
+    console.log(data, token, "data and token in updateServiceById");
     const options = {
       method: "PUT",
       headers: {
@@ -80,4 +80,3 @@ export const createService = async (serviceData, token) => {
       return { success: false, message: error.message };
     }
   };
-  
