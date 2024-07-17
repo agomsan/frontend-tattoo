@@ -5,7 +5,7 @@ Welcome to the Frontend Tattoo project! This repository contains the frontend co
 
 To get started with the project, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/frontend-tattoo.git`
+1. Clone the repository: `git clone https://github.com/agomsan/frontend-tattoo`
 2. Navigate to the project directory: `cd frontend-tattoo`
 3. Install the dependencies: `npm install`
 
@@ -29,7 +29,7 @@ We welcome contributions from the community! If you'd like to contribute to the 
 4. Push your changes to your forked repository: `git push origin feature/your-feature-name`
 5. Open a pull request to the main repository
 
-Here are the logos of the technologies used in this project:
+Used Stack Overflow:
 
 - ![React Logo](https://example.com/react-logo.png)
 - ![HTML5 Logo](https://example.com/html5-logo.png)
