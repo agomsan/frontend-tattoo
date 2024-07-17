@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ContactPage = () => {
+const Contact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle form submission logic here
@@ -26,4 +26,4 @@ const ContactPage = () => {
     );
 };
 
-export default ContactPage;
+export default Contact;

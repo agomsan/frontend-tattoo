@@ -15,8 +15,6 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Make a request to your backend API to authenticate the user
-    // Replace 'YOUR_BACKEND_ENDPOINT' with the actual endpoint URL
     fetch("http://127.0.0.1:4000/api/auth/login", {
       method: "POST",
       headers: {

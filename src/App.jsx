@@ -7,7 +7,8 @@ import Register from "./pages/Register/Register";
 import Profile from "./pages/Profile/Profile";
 import Admin from "./pages/Admin/Admin";
 import About from "./pages/About/About";
-import Appointments from "./pages/appointments/Appointments";
+import Appointments from "./pages/Appointments/Appointments";
+import Contact from "./pages/Contact/Contact";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="Admin" element={<Admin />} />
       <Route path="Appointments" element={<Appointments />} />
       <Route path="About" element={<About />} />
+      <Route path="Contact" element={<Contact />} />
     </Routes>
   );
 }

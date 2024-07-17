@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -9,16 +9,17 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function Home() {
   return (
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
+    <div className="body">
+     <Navbar bg="light" expand="lg" variant="light" fixed="top">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="/Home">HOME</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link as={Link} to="/About">ABOUT</Nav.Link>
+            <Nav.Link href="/Login">LOGIN</Nav.Link>
             <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/Contact">CONTACT</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
               </NavDropdown.Item>
@@ -31,12 +32,11 @@ export default function Home() {
           </Nav>
           <Nav>
             <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
+            <Nav.Link as={Link} to="/About">ABOUT</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar>
+     </Navbar>
+    </div>
   );
-}
+} 

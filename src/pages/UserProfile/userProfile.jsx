@@ -296,7 +296,7 @@ export default function UserProfile({ isAdmin }) {
         setError("Error creating the appointment.");
       }
     } catch (error) {
-      setError("Error creating the appointmnet.");
+      setError("Error creating the appointment.");
     }
   };
 
@@ -334,7 +334,7 @@ export default function UserProfile({ isAdmin }) {
         setError("Error updating appointment.");
       }
     } catch (error) {
-      setError("Error updating appopintment.");
+      setError("Error updating appointment.");
     }
   };
 
@@ -426,7 +426,7 @@ export default function UserProfile({ isAdmin }) {
                   <Nav.Link as={Link} to="/Gallery">
                     Gallery
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/artistas">
+                  <Nav.Link as={Link} to="/ARTISTS">
                     Artists
                   </Nav.Link>
                   <Nav.Link
@@ -509,7 +509,7 @@ export default function UserProfile({ isAdmin }) {
               />
             </Form.Group>
             <Button variant="primary" type="submit">
-              Guardar Cambios
+              SAVE CHANGES
             </Button>
           </Form>
         ) : showUsers ? (
@@ -594,10 +594,10 @@ export default function UserProfile({ isAdmin }) {
                   </Card.Body>
                 </Card>
               ))}
-              <h3>Crear Nueva Cita</h3>
+              <h3>CREATE NEW APPOINTMENT</h3>
               <Form onSubmit={handleCreateAppointment}>
                 <Form.Group controlId="formAppointmentDate">
-                  <Form.Label>Fecha y Hora</Form.Label>
+                  <Form.Label>DATE AND TIME</Form.Label>
                   <Form.Control
                     type="datetime-local"
                     name="appointment_date"
@@ -606,14 +606,14 @@ export default function UserProfile({ isAdmin }) {
                   />
                 </Form.Group>
                 <Form.Group controlId="formServiceId">
-                  <Form.Label>Servicio</Form.Label>
+                  <Form.Label>SERVICE</Form.Label>
                   <Form.Control
                     as="select"
                     name="service_id"
                     value={newAppointment.service_id}
                     onChange={handleEditAppointmentChange}
                   >
-                    <option value="">Seleccionar Servicio</option>
+                    <option value="">SELECT SERVICE</option>
                     {services.map((service) => (
                       <option key={service.id} value={service.id}>
                         {service.service_name}
@@ -622,14 +622,14 @@ export default function UserProfile({ isAdmin }) {
                   </Form.Control>
                 </Form.Group>
                 <Form.Group controlId="formArtistId">
-                  <Form.Label>Artista</Form.Label>
+                  <Form.Label>ARTIST</Form.Label>
                   <Form.Control
                     as="select"
                     name="artist_id"
                     value={newAppointment.artist_id}
                     onChange={handleEditAppointmentChange}
                   >
-                    <option value="">Seleccionar Artista</option>
+                    <option value="">SELECT ARTIST</option>
                     {artists.map((artist) => (
                       <option key={artist.id} value={artist.id}>
                         {artist.name}
@@ -638,14 +638,14 @@ export default function UserProfile({ isAdmin }) {
                   </Form.Control>
                 </Form.Group>
                 <Button variant="primary" type="submit">
-                  {editingAppointment ? "Actualizar Cita" : "Crear Cita"}
+                  {editingAppointment ? "UPDATE APPOINTMENT" : "CREATE APPOINTMENT"}
                 </Button>
               </Form>
             </div>
           )
         ) : (
           <Row className="justify-content-center">
-            <h1>Bienvenido, {profileData.first_name}!</h1>
+            <h1>WELCOME {profileData.first_name}!</h1>
           </Row>
         )}
 
@@ -653,7 +653,7 @@ export default function UserProfile({ isAdmin }) {
         {showArtistForm && (
           <Form className="my-4">
             <Form.Group controlId="formName">
-              <Form.Label>Nombre</Form.Label>
+              <Form.Label>NAME</Form.Label>
               <Form.Control
                 type="text"
                 name="name"
@@ -671,7 +671,7 @@ export default function UserProfile({ isAdmin }) {
               />
             </Form.Group>
             <Form.Group controlId="formSpecialty">
-              <Form.Label>Especialidad</Form.Label>
+              <Form.Label>SPECIALTY</Form.Label>
               <Form.Control
                 type="text"
                 name="Specialty"
@@ -680,7 +680,7 @@ export default function UserProfile({ isAdmin }) {
               />
             </Form.Group>
             <Button variant="primary" onClick={handleCreateArtist}>
-              Crear Artista
+              CREATE ARTIST
             </Button>
           </Form>
         )}
