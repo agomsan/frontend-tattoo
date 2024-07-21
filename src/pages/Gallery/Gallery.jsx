@@ -1,16 +1,16 @@
 import React from 'react';
-
+import "./Gallery.css";
 const Gallery = () => {
     const images = [
-        '/path/to/image1.jpg',
-        '/path/to/image2.jpg',
-        '/path/to/image3.jpg',
-        '/path/to/image4.jpg',
-        '/path/to/image5.jpg',
+        '../../../img/image1.jpg',
+        '../../../img/image2.jpg',
+        '../../../img/image3.jpg',
+        '../../../img/image4.jpg',
+        '../../../img/image5.jpg',
     ];
 
     return (
-        <div className="Gallery">
+        <div className="gallery-container">
             {images.map((image, index) => (
                 <img key={index} src={image} alt={`Image ${index + 1}`} />
             ))}

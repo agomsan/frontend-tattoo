@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:4000/api";
+const BASE_URL = "http://localhost:4000/api/";
 
 export const createAppointment = async (appointmentData, token) => {
   const options = {
