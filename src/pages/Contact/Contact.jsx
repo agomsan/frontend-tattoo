@@ -15,7 +15,7 @@ const Contact = () => {
                 <input type="text" id="name" name="name" placeholder="Alex" />
 
                 <label htmlFor="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="surfingworld@surfingworld.com" />
+                <input type="email" id="email" name="email" placeholder="hi@hi.com" />
 
                 <label htmlFor="message">Message:</label>
                 <textarea id="message" name="message" rows="4" placeholder="Enter your message here" />
