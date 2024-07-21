@@ -10,6 +10,6 @@
 }
 
 .focused {
-    border-color: rgba(90, 88, 89, 0.6) ;
-    box-shadow: 0 0 0 0.2rem rgba(111, 83, 105, 0.6)   ;
+    border-color: rgba(90, 90, 90, 0.6) ;
+    box-shadow: 0 0 0 0.2rem rgba(244, 226, 240, 0.6)   ;
 }

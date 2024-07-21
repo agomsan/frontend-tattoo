@@ -13,7 +13,7 @@ body {
 
 .body-register {
   font-family: Arial, sans-serif;
-  background-image: url(/img/estudio1.jpg);
+  background-image: url(../../../img/register.jpg);
   background-size: cover;
   background-position: center;
   display: flex;

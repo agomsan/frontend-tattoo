@@ -13,7 +13,7 @@ body {
   
   .login-body {
     font-family: Arial, sans-serif;
-    background-image: url(/img/estudio1.jpg);
+    background-image: url(../../../img/login.jpg);
     background-size: cover;
     background-position: center;
     display: flex;

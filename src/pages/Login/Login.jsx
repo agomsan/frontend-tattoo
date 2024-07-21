@@ -78,14 +78,14 @@ export default function Login() {
         <CustomInput
           type="email"
           name="email"
-          placeholder="Introduce email"
+          placeholder="email"
           value={credentials.email}
           handler={inputHandler}
         />
         <CustomInput
           type="password"
           name="password"
-          placeholder="Introduce password"
+          placeholder="password"
           value={credentials.password}
           handler={inputHandler}
         />
