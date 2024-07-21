@@ -373,7 +373,7 @@ export default function UserProfile({ isAdmin }) {
               setShowAppointments(false);
             }}
           >
-            Tattoo Studio
+            SURFING WORLD TATTOO STUDIO
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -411,19 +411,19 @@ export default function UserProfile({ isAdmin }) {
                     Appointments
                   </Nav.Link>{" "}
                   {}
-                  <Nav.Link as={Link} to="/Appointments">
+                  <Nav.Link as={Link} to="/Services">
                     Services
                   </Nav.Link>
                 </>
               ) : (
                 <>
-                  <Nav.Link as={Link} to="/Appointments">
+                  <Nav.Link as={Link} to="/Services">
                     Services
                   </Nav.Link>
                   <Nav.Link as={Link} to="/Gallery">
                     Gallery
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/ARTISTS">
+                  <Nav.Link as={Link} to="/Artists">
                     Artists
                   </Nav.Link>
                   <Nav.Link

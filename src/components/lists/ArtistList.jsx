@@ -10,9 +10,7 @@ const ArtistList = ({
   editArtistForm,
   handleEditArtistChange,
   handleEditArtistSubmit,
-  showArtistForm,
   setShowArtistForm,
-  handleCreateArtist
 }) => {
   return (
     <div>
@@ -46,7 +44,7 @@ const ArtistList = ({
                       <Form.Label>BIOGRAPHY</Form.Label>
                       <Form.Control 
                         type="text" 
-                        name="Bio"
+                        name="BIO"
                         value={editArtistForm.Bio}
                         onChange={handleEditArtistChange} 
                       />
@@ -70,40 +68,6 @@ const ArtistList = ({
           </Col>
         ))}
       </Row>
-      {showArtistForm && (
-        <Form className="my-4">
-          <Form.Group controlId="formName">
-            <Form.Label>NAME</Form.Label>
-            <Form.Control 
-              type="text" 
-              name="name"
-              value={editArtistForm.name}
-              onChange={handleEditArtistChange} 
-            />
-          </Form.Group>
-          <Form.Group controlId="formBio">
-            <Form.Label>BIOGRAPHY</Form.Label>
-            <Form.Control 
-              type="text" 
-              name="Bio"
-              value={editArtistForm.Bio}
-              onChange={handleEditArtistChange} 
-            />
-          </Form.Group>
-          <Form.Group controlId="formSpecialty">
-            <Form.Label>TOP SERVICES OF THIS ARTIST</Form.Label>
-            <Form.Control 
-              type="text" 
-              name="Specialty"
-              value={editArtistForm.Specialty}
-              onChange={handleEditArtistChange} 
-            />
-          </Form.Group>
-          <Button variant="primary" onClick={handleCreateArtist}>
-            CREATE ARTIST
-          </Button>
-        </Form>
-      )}
     </div>
   );
 }

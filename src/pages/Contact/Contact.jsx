@@ -38,7 +38,7 @@ export default function Contact() {
         </Container>
       </Navbar>
       {/* Contact Form Starts Here */}
-      <div className="contact-form text-white">
+      <div className="contact-form blackcontainer mt-5">
         <h1>CONTACT US!</h1>
         <Form>
           <Form.Group className="mb-3" controlId="formBasicName">
