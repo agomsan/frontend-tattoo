@@ -62,13 +62,14 @@ export default function Login() {
 
   return (
     <div className="login-body">
-      <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
+      <Navbar bg="light" variant="light" expand="lg" fixed="top">
         <Container>
-          <Navbar.Brand href="/">Tattoo Studio</Navbar.Brand>
+          <Navbar.Brand href="/">SURFING WORLD TATTOO STUDIO</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/">GO HOME</Nav.Link>
+              <Nav.Link href="/register">REGISTER</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

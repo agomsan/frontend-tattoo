@@ -1,0 +1,12 @@
+about-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h3, h1 {
+    color: rgb(255, 255, 255);
+}
+.blackcontainer {
+    background-color: black;
+    padding: 20px;
+}

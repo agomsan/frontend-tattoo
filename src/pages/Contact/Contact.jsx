@@ -1,29 +1,66 @@
-import React from 'react';
+import React from "react";
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+  Container,
+  Form,
+  Button,
+} from "react-bootstrap";
+import { Link } from "react-router-dom";
+import "./Contact.css";
 
-const Contact = () => {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle form submission logic here
-    };
+export default function Contact() {
+  return (
+    <div>
+      <Navbar bg="light" expand="lg" variant="light" fixed="top">
+        <Container>
+          <Navbar.Brand href="/">SURFING WORLD TATTOO STUDIO</Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link as={Link} to="/Register">
+                REGISTER
+              </Nav.Link>
+              <Nav.Link href="/Login">LOGIN</Nav.Link>
+              <NavDropdown title="MORE" id="collapsible-nav-dropdown">
+                <NavDropdown.Item as={Link} to="/Contact">
+                  CONTACT
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+            <Nav>
+              <Nav.Link as={Link} to="/About">
+                ABOUT
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      {/* Contact Form Starts Here */}
+      <div className="contact-form text-white">
+        <h1>CONTACT US!</h1>
+        <Form>
+          <Form.Group className="mb-3" controlId="formBasicName">
+            <Form.Label>Name</Form.Label>
+            <Form.Control type="text" placeholder="Enter your name" />
+          </Form.Group>
 
-    return (
-        <div>
-            <h1>Contact Us</h1>
-            <p>Feel free to reach out to us with any questions or inquiries.</p>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Alex" />
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter your email" />
+          </Form.Group>
 
-                <label htmlFor="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="hi@hi.com" />
+          <Form.Group className="mb-3" controlId="formBasicMessage">
+            <Form.Label>Message</Form.Label>
+            <Form.Control as="textarea" rows={3} placeholder="Your message" />
+          </Form.Group>
 
-                <label htmlFor="message">Message:</label>
-                <textarea id="message" name="message" rows="4" placeholder="Enter your message here" />
-
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    );
-};
-
-export default Contact;
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </div>
+    </div>
+  );
+}

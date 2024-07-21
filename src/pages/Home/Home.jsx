@@ -12,7 +12,7 @@ export default function Home() {
     <div className="body">
       <Navbar bg="light" expand="lg" variant="light" fixed="top">
         <Container>
-          <Navbar.Brand href="/">HOME</Navbar.Brand>
+          <Navbar.Brand href="/">SURFING WORLD TATTOO STUDIO</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -20,24 +20,13 @@ export default function Home() {
                 REGISTER
               </Nav.Link>
               <Nav.Link href="/Login">LOGIN</Nav.Link>
-              <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
+              <NavDropdown title="MORE" id="collapsible-nav-dropdown">
                 <NavDropdown.Item as={Link} to="/Contact">
                   CONTACT
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
               <Nav.Link as={Link} to="/About">
                 ABOUT
               </Nav.Link>

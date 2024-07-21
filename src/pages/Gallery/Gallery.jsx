@@ -1,6 +1,9 @@
 import React from 'react';
 import "./Gallery.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const Gallery = () => {
+    
     const images = [
         '../../../img/image1.jpg',
         '../../../img/image2.jpg',
