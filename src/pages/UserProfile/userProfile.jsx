@@ -101,10 +101,7 @@ export default function UserProfile({ isAdmin }) {
           setProfileData(profileRes.data);
           setEmail(profileRes.data.email);
         } else {
-          console.error(
-            "Error retrieving profile",
-            profileRes.message
-          );
+          console.error("Error retrieving profile", profileRes.message);
         }
 
         if (usersRes.success && Array.isArray(usersRes.data)) {
@@ -638,7 +635,9 @@ export default function UserProfile({ isAdmin }) {
                   </Form.Control>
                 </Form.Group>
                 <Button variant="primary" type="submit">
-                  {editingAppointment ? "UPDATE APPOINTMENT" : "CREATE APPOINTMENT"}
+                  {editingAppointment
+                    ? "UPDATE APPOINTMENT"
+                    : "CREATE APPOINTMENT"}
                 </Button>
               </Form>
             </div>

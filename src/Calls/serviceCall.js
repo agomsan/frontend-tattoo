@@ -11,7 +11,7 @@ export const createService = async (serviceData, token) => {
     };
   
     try {
-      const response = await fetch(`${BASE_URL}/services`, options);
+      const response = await fetch(`${BASE_URL}services`, options);
       const responseData = await response.json();
       return responseData;
     } catch (error) {
@@ -31,7 +31,7 @@ export const createService = async (serviceData, token) => {
     };
   
     try {
-      const response = await fetch(`${BASE_URL}/services`, options);
+      const response = await fetch(`${BASE_URL}services`, options);
       const data = await response.json();
       console.log(data);
       return data;
@@ -52,7 +52,7 @@ export const createService = async (serviceData, token) => {
     };
   
     try {
-      const response = await fetch(`${BASE_URL}/services/${data.id}`, options);
+      const response = await fetch(`${BASE_URL}services/${data.id}`, options);
       const responseData = await response.json();
       console.log(responseData);
       return responseData;
@@ -72,7 +72,7 @@ export const createService = async (serviceData, token) => {
     };
   
     try {
-      const response = await fetch(`${BASE_URL}/services/${id}`, options);
+      const response = await fetch(`${BASE_URL}services/${id}`, options);
       const responseData = await response.json();
       return responseData;
     } catch (error) {

@@ -30,7 +30,7 @@ export const getAllUsers = async (token) => {
   };
 
   try {
-    const response = await fetch(`${BASE_URL}/users`, options);
+    const response = await fetch(`${BASE_URL}users`, options);
     const data = await response.json();
     console.log(data);
     return data;
@@ -52,7 +52,7 @@ export const updateProfile = async (data, token) => {
   };
 
   try {
-    const response = await fetch(`${BASE_URL}/users/profile`, options);
+    const response = await fetch(`${BASE_URL}users/profile`, options);
     const data = response.json();
     console.log(data);
     return data;
@@ -76,7 +76,7 @@ export const updateUserById = async (data, token) => {
   };
 
   try {
-    const response = await fetch(`${BASE_URL}/users/${data.id}`, options);
+    const response = await fetch(`${BASE_URL}users/${data.id}`, options);
     const responseData = await response.json();
     console.log(responseData);
     return responseData;
@@ -97,7 +97,7 @@ export const deleteUserById = async (id, token) => {
   };
 
   try {
-    const response = await fetch(`${BASE_URL}/users/${id}`, options);
+    const response = await fetch(`${BASE_URL}users/${id}`, options);
     const responseData = await response.json();
     console.log(responseData);
     return responseData;

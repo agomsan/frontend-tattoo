@@ -11,7 +11,7 @@ export const login = async (credentials) => {
     };
 
     try {
-      const response = await fetch(`${BASE_URL}/auth/login`, options);
+      const response = await fetch(`${BASE_URL}auth/login`, options);
       
       if (!response.ok) {
         throw new Error('an error occurred while logging in');

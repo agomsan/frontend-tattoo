@@ -13,7 +13,7 @@ const AppointmentList = ({
   handleCreateAppointment,
 }) => (
   <div>
-    <h3>APPOINTMENTS LIST</h3>
+    <h3>APPOINTMENT LIST</h3>
     {appointments.map((appointment) => (
       <Card key={appointment.id} className="mb-4">
         <Card.Body>
