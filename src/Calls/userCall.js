@@ -10,7 +10,7 @@ export const getProfile = async (token) => {
   };
 
   try {
-    const response = await fetch(`${BASE_URL}users/profile`, options);
+    const response = await fetch(`${BASE_URL}users/profile/`, options);
     const data = await response.json();
 
     return data;

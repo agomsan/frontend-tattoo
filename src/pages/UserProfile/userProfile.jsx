@@ -31,13 +31,15 @@ import {
   createAppointment,
   updateAppointmentById,
   deleteAppointmentById,
-} from "../../Calls/appointmentCall";
+} from "../../Calls/appointment";
 import { getAllServices } from "../../Calls/serviceCall";
+import { BsFillPencilFill, BsFillTrash3Fill } from "react-icons/bs";
 import UserList from "../../components/lists/UserList";
 import ArtistList from "../../components/lists/ArtistList";
 import AppointmentList from "../../components/lists/AppointmentList";
 import "./userProfile.css";
-import { useAuth } from "../../contexts/authContext/AuthContext";
+
+import { useAuth } from "../../contexts/authContext/AuthContext"; 
 
 export default function UserProfile({ isAdmin }) {
   const [profileData, setProfileData] = useState(null);
@@ -73,7 +75,7 @@ export default function UserProfile({ isAdmin }) {
   });
   const [editingAppointment, setEditingAppointment] = useState(null);
   const navigate = useNavigate();
-  const { userToken, logan, logout } = useAuth();
+  const { userToken, logan, logout } = useAuth(); 
 
   useEffect(() => {
     const token = userToken?.token;
@@ -101,7 +103,10 @@ export default function UserProfile({ isAdmin }) {
           setProfileData(profileRes.data);
           setEmail(profileRes.data.email);
         } else {
-          console.error("Error retrieving profile", profileRes.message);
+          console.error(
+            "Error retrieving profile data:",
+            profileRes.message
+          );
         }
 
         if (usersRes.success && Array.isArray(usersRes.data)) {
@@ -109,21 +114,21 @@ export default function UserProfile({ isAdmin }) {
           setFilteredUsers(usersRes.data);
         } else if (isAdmin) {
           console.error("Expected array of users, received:", usersRes);
-          setError("Error trying to recover users. Unexpected behavior.");
+          setError("Error retrieving users.");
         }
 
         if (artistsRes.success && Array.isArray(artistsRes.data)) {
           setArtists(artistsRes.data);
         } else {
           console.error("Expected array of artists, received:", artistsRes);
-          setError("Error recovering artists. Unexpected behavior.");
+          setError("Error retrieving artists.");
         }
 
         if (servicesRes.success && Array.isArray(servicesRes.data)) {
           setServices(servicesRes.data);
         } else {
           console.error("Expected array of services, received:", servicesRes);
-          setError("Error retrieving services. Unexpected behavior.");
+          setError("Error retrieving services.");
         }
 
         if (appointmentsRes.success) {
@@ -131,13 +136,13 @@ export default function UserProfile({ isAdmin }) {
         } else {
           setError(
             isAdmin
-              ? "Error recovering appointments."
-              : "Error recovering user appointments."
+              ? "Error retrieving appointments."
+              : "Error retrieving user appointments."
           );
         }
       } catch (err) {
         console.error("Fetch error:", err);
-        setError("Error fetching data.");
+        setError("Error retrieving data.");
       }
     };
 
@@ -187,10 +192,10 @@ export default function UserProfile({ isAdmin }) {
         setFilteredUsers(updatedUsers);
         setEditingUser(null);
       } else {
-        console.error("Error updating profile:", response.message);
+        console.error("Error updating user:", response.message);
       }
     } catch (error) {
-      console.error("Error updating profile:", error);
+      console.error("Error updating user:", error);
     }
   };
 
@@ -220,7 +225,7 @@ export default function UserProfile({ isAdmin }) {
         console.error("Error creating artist:", response.message);
       }
     } catch (error) {
-      console.error("Error during application:", error);
+      console.error("Request error:", error);
     }
   };
 
@@ -252,10 +257,10 @@ export default function UserProfile({ isAdmin }) {
         setArtists(updatedArtists);
         setEditingArtist(null);
       } else {
-        console.error("Error updating artist info:", response.message);
+        console.error("Error updating artist:", response.message);
       }
     } catch (error) {
-      console.error("Error updating artist info:", error);
+      console.error("Error updating artist:", error);
     }
   };
 
@@ -290,10 +295,10 @@ export default function UserProfile({ isAdmin }) {
           artist_id: "",
         });
       } else {
-        setError("Error creating the appointment.");
+        setError("Error creating appointment.");
       }
     } catch (error) {
-      setError("Error creating the appointment.");
+      setError("Error creating appointment.");
     }
   };
 
@@ -337,10 +342,7 @@ export default function UserProfile({ isAdmin }) {
 
   const handleDeleteAppointmentClick = async (appointmentId) => {
     try {
-      const response = await deleteAppointmentById(
-        appointmentId,
-        userToken.token
-      );
+      const response = await deleteAppointmentById(appointmentId, userToken.token);
       if (response.success) {
         setUserAppointments(
           userAppointments.filter(
@@ -361,7 +363,7 @@ export default function UserProfile({ isAdmin }) {
 
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Container>
           <Navbar.Brand
             as={Link}
@@ -411,19 +413,19 @@ export default function UserProfile({ isAdmin }) {
                     Appointments
                   </Nav.Link>{" "}
                   {}
-                  <Nav.Link as={Link} to="/Services">
+                  <Nav.Link as={Link} to="/services">
                     Services
                   </Nav.Link>
                 </>
               ) : (
                 <>
-                  <Nav.Link as={Link} to="/Services">
+                  <Nav.Link as={Link} to="/services">
                     Services
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/Gallery">
+                  <Nav.Link as={Link} to="/gallery">
                     Gallery
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/Artists">
+                  <Nav.Link as={Link} to="/artists">
                     Artists
                   </Nav.Link>
                   <Nav.Link
@@ -433,7 +435,7 @@ export default function UserProfile({ isAdmin }) {
                       setShowArtists(false);
                     }}
                   >
-                    My Appointments
+                    My appointments
                   </Nav.Link>{" "}
                   {}
                 </>
@@ -455,7 +457,7 @@ export default function UserProfile({ isAdmin }) {
                 <NavDropdown.Item
                   onClick={() => {
                     localStorage.removeItem("userToken");
-                    logout();
+                    logout(); 
                     navigate("/login");
                   }}
                 >
@@ -478,7 +480,7 @@ export default function UserProfile({ isAdmin }) {
           >
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formFirstName">
-                <Form.Label>NAME</Form.Label>
+                <Form.Label>Name</Form.Label>
                 <Form.Control
                   type="text"
                   name="first_name"
@@ -487,7 +489,7 @@ export default function UserProfile({ isAdmin }) {
                 />
               </Form.Group>
               <Form.Group as={Col} controlId="formLastName">
-                <Form.Label>LAST NAME</Form.Label>
+                <Form.Label>Last name</Form.Label>
                 <Form.Control
                   type="text"
                   name="last_name"
@@ -497,7 +499,7 @@ export default function UserProfile({ isAdmin }) {
               </Form.Group>
             </Row>
             <Form.Group controlId="formEmail">
-              <Form.Label>EMAIL</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
                 name="email"
@@ -505,8 +507,8 @@ export default function UserProfile({ isAdmin }) {
                 onChange={editInputHandler}
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
-              SAVE CHANGES
+            <Button variant="success" type="submit">
+              Save changes
             </Button>
           </Form>
         ) : showUsers ? (
@@ -555,7 +557,7 @@ export default function UserProfile({ isAdmin }) {
             />
           ) : (
             <div>
-              <h3>MY APPOINTMENTS</h3>
+              <h3>My appointments</h3>
               {userAppointments.map((appointment) => (
                 <Card key={appointment.id} className="mb-4">
                   <Card.Body>
@@ -565,7 +567,7 @@ export default function UserProfile({ isAdmin }) {
                         className="ms-2"
                         onClick={() => handleEditAppointmentClick(appointment)}
                       >
-                        EDIT
+                        Edit
                       </Button>
                       <Button
                         className="ms-2"
@@ -573,44 +575,44 @@ export default function UserProfile({ isAdmin }) {
                           handleDeleteAppointmentClick(appointment.id)
                         }
                       >
-                        DELETE
+                        Delete
                       </Button>
                     </Card.Title>
                     <Card.Text>
-                      SERVICE{" "}
+                      Service:{" "}
                       {appointment.service
                         ? appointment.service.service_name
-                        : "NOT ASSIGNED"}
+                        : "Not assigned"}
                     </Card.Text>
                     <Card.Text>
-                      ARTIST{" "}
+                      Artist:{" "}
                       {appointment.artist
                         ? appointment.artist.name
-                        : "NOT ASSIGNED"}
+                        : "Not assigned"}
                     </Card.Text>
                   </Card.Body>
                 </Card>
               ))}
-              <h3>CREATE NEW APPOINTMENT</h3>
+              <h3>Create appointment</h3>
               <Form onSubmit={handleCreateAppointment}>
                 <Form.Group controlId="formAppointmentDate">
-                  <Form.Label>DATE AND TIME</Form.Label>
+                  <Form.Label>Date and time</Form.Label>
                   <Form.Control
-                    type="datetime-local"
+                    type="date"
                     name="appointment_date"
                     value={newAppointment.appointment_date}
                     onChange={handleEditAppointmentChange}
                   />
                 </Form.Group>
                 <Form.Group controlId="formServiceId">
-                  <Form.Label>SERVICE</Form.Label>
+                  <Form.Label>Service</Form.Label>
                   <Form.Control
                     as="select"
                     name="service_id"
                     value={newAppointment.service_id}
                     onChange={handleEditAppointmentChange}
                   >
-                    <option value="">SELECT SERVICE</option>
+                    <option value="">Select service</option>
                     {services.map((service) => (
                       <option key={service.id} value={service.id}>
                         {service.service_name}
@@ -619,14 +621,14 @@ export default function UserProfile({ isAdmin }) {
                   </Form.Control>
                 </Form.Group>
                 <Form.Group controlId="formArtistId">
-                  <Form.Label>ARTIST</Form.Label>
+                  <Form.Label>Artist</Form.Label>
                   <Form.Control
                     as="select"
                     name="artist_id"
                     value={newAppointment.artist_id}
                     onChange={handleEditAppointmentChange}
                   >
-                    <option value="">SELECT ARTIST</option>
+                    <option value="">Select Artist</option>
                     {artists.map((artist) => (
                       <option key={artist.id} value={artist.id}>
                         {artist.name}
@@ -634,17 +636,15 @@ export default function UserProfile({ isAdmin }) {
                     ))}
                   </Form.Control>
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                  {editingAppointment
-                    ? "UPDATE APPOINTMENT"
-                    : "CREATE APPOINTMENT"}
+                <Button variant="success" type="submit">
+                  {editingAppointment ? "Update Appointment" : "Create appointment"}
                 </Button>
               </Form>
             </div>
           )
         ) : (
           <Row className="justify-content-center">
-            <h1>WELCOME {profileData.first_name}!</h1>
+            <h1>WELCOME BACK, {profileData.first_name}!</h1>
           </Row>
         )}
 
@@ -652,7 +652,7 @@ export default function UserProfile({ isAdmin }) {
         {showArtistForm && (
           <Form className="my-4">
             <Form.Group controlId="formName">
-              <Form.Label>NAME</Form.Label>
+              <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
                 name="name"
@@ -670,7 +670,7 @@ export default function UserProfile({ isAdmin }) {
               />
             </Form.Group>
             <Form.Group controlId="formSpecialty">
-              <Form.Label>SPECIALTY</Form.Label>
+              <Form.Label>Specialty</Form.Label>
               <Form.Control
                 type="text"
                 name="Specialty"
@@ -678,8 +678,8 @@ export default function UserProfile({ isAdmin }) {
                 onChange={handleEditArtistChange}
               />
             </Form.Group>
-            <Button variant="primary" onClick={handleCreateArtist}>
-              CREATE ARTIST
+            <Button variant="success" onClick={handleCreateArtist}>
+              Create artist
             </Button>
           </Form>
         )}

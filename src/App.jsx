@@ -9,12 +9,15 @@ import Admin from "./pages/Admin/Admin";
 import About from "./pages/About/About";
 import Appointments from "./pages/Appointments/Appointments";
 import Contact from "./pages/Contact/Contact";
-
+import Services from "./pages/Services/Services";
+import Artists from "./pages/Artists/Artists";
+import UserProfile from "./pages/UserProfile/userProfile";  
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="Login" element={<Login />} />
+      <Route path="User Profile" element={<UserProfile />} />
       <Route path="Gallery" element={<Gallery />} />
       <Route path="Register" element={<Register />} />
       <Route path="Profile" element={<Profile />} />
@@ -23,6 +26,8 @@ function App() {
       <Route path="Appointments" element={<Appointments />} />
       <Route path="About" element={<About />} />
       <Route path="Contact" element={<Contact />} />
+      <Route path="Services" element={<Services />} />
+      <Route path="Artists" element={<Artists />} />
     </Routes>
   );
 }

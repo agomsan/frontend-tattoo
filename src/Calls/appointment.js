@@ -12,7 +12,7 @@ export const createAppointment = async (appointmentData, token) => {
   console.log("Token:", token);
   console.log("BASE_URL:", BASE_URL);
   try {
-    const response = await fetch(`${BASE_URL}appointments`, options);
+    const response = await fetch(`${BASE_URL}appointments/`, options);
     const responseData = await response.json();
     console.log("Appointment creation response:", responseData);
     return responseData;
@@ -23,6 +23,7 @@ export const createAppointment = async (appointmentData, token) => {
 };
 
 export const getUserAppointments = async (userId, token) => {
+  console.log(userId, token)
   const options = {
     method: "GET",
     headers: {
@@ -32,10 +33,7 @@ export const getUserAppointments = async (userId, token) => {
   };
 
   try {
-    const response = await fetch(
-      `${BASE_URL}appointments/user/${userId}`,
-      options
-    );
+    const response = await fetch(`${BASE_URL}/appointments/user/${userId}`, options);
     const responseData = await response.json();
     console.log("Get user appointments response:", responseData);
     return responseData;
@@ -56,10 +54,7 @@ export const updateAppointmentById = async (data, token) => {
   };
 
   try {
-    const response = await fetch(
-      `${BASE_URL}appointments/${data.id}`,
-      options
-    );
+    const response = await fetch(`${BASE_URL}appointments/${data.id}`, options);
     const responseData = await response.json();
     console.log("Update appointment response:", responseData);
     return responseData;
@@ -79,7 +74,7 @@ export const deleteAppointmentById = async (id, token) => {
   };
 
   try {
-    const response = await fetch(`${BASE_URL}appointments/${id}`, options);
+    const response = await fetch(`${BASE_URL}/appointments/${id}`, options);
     const responseData = await response.json();
     console.log("Delete appointment response:", responseData);
     return responseData;
@@ -99,7 +94,7 @@ export const getAllAppointments = async (token) => {
   };
 
   try {
-    const response = await fetch(`${BASE_URL}/appointments`, options);
+    const response = await fetch(`${BASE_URL}appointments/`, options);
     const data = await response.json();
     console.log(data);
     return data;
@@ -107,6 +102,7 @@ export const getAllAppointments = async (token) => {
     console.log(error);
   }
 };
+
 
 export const getAllServices = async (token) => {
   try {

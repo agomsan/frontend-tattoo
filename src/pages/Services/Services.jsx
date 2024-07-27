@@ -1,9 +1,9 @@
 import { Navbar, Container, Nav, NavDropdown, Form, Row, Col, Card, Button, Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, useMemo } from "react";
-import { getAllServices, createService, updateServiceId, deleteServiceById } from "../../services/serviceCall";
+import { getAllServices, createService, updateServiceId, deleteServiceById } from "../../Calls/serviceCall";
 import { BsFillPencilFill, BsFillTrash3Fill } from "react-icons/bs";
-import { useAuth } from "../../contexts/auth-context/AuthContext"; 
+import { useAuth } from "../../contexts/authContext/AuthContext"; 
 import "./Services.css";
 
 export default function Services() {
@@ -28,7 +28,7 @@ export default function Services() {
           setServices(response.data);
         } else {
           console.error("Expected array of services, received:", response);
-          setError("Error retrieving services");
+          setError("Error obtaining service.");
         }
       } catch (err) {
         console.error("Fetch error:", err);
@@ -107,24 +107,24 @@ export default function Services() {
         console.error("Error creating service:", response.message);
       }
     } catch (error) {
-      console.error("Error creating service:", error);
+      console.error("Error deleting service", error);
     }
   };
 
   return (
     <>
-      <Navbar bg="light" variant="light" expand="lg">
+      <Navbar bg="white" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand as={Link} to="/">Home</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">HOME</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Navbar.Brand as={Link} to="/profile">Profile</Navbar.Brand>
+              <Navbar.Brand as={Link} to="/profile">PROFILE</Navbar.Brand>
               <NavDropdown title="Account" id="basic-nav-dropdown">
-                <NavDropdown.Item as={Link} to="/Services">Services</NavDropdown.Item>
-                {userRole === "super_admin" && <NavDropdown.Item as={Link} to="/admin">Users</NavDropdown.Item>}
+                <NavDropdown.Item as={Link} to="/services">Services</NavDropdown.Item>
+                {userRole === "super_admin" && <NavDropdown.Item as={Link} to="/admin">MANAGE</NavDropdown.Item>}
                 <NavDropdown.Divider />
-                <NavDropdown.Item onClick={() => { logout(); navigate("/login"); }}>Logout</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => { logout(); navigate("/login"); }}>Log out</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
@@ -135,7 +135,7 @@ export default function Services() {
         {error && <Alert variant="danger">{error}</Alert>}
         <h2>Available services:</h2>
         {userRole === "super_admin" && (
-          <Form onSubmit={handleNewServiceSubmit} className="mb-4">
+          <Form onSubmit={handleNewServiceSubmit} className="mb-4 text-white">
             <Form.Group controlId="formServiceName">
               <Form.Label>Service name</Form.Label>
               <Form.Control 
@@ -156,7 +156,7 @@ export default function Services() {
                 required
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="success" type="submit">
               Create service
             </Button>
           </Form>
@@ -196,7 +196,7 @@ export default function Services() {
                           onChange={handleEditServiceChange} 
                         />
                       </Form.Group>
-                      <Button variant="primary" type="submit">
+                      <Button variant="success" type="submit">
                         Save
                       </Button>
                     </Form>

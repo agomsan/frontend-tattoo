@@ -11,7 +11,7 @@ export const createService = async (serviceData, token) => {
     };
   
     try {
-      const response = await fetch(`${BASE_URL}services`, options);
+      const response = await fetch(`${BASE_URL}services/`, options);
       const responseData = await response.json();
       return responseData;
     } catch (error) {

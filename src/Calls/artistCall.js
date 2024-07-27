@@ -11,7 +11,7 @@ export const createArtist = async (artistData, token) => {
   };
 
   try {
-    const response = await fetch(`${BASE_URL}artists`, options);
+    const response = await fetch(`${BASE_URL}artists/`, options);
     const responseData = await response.json();
     return responseData;
   } catch (error) {
@@ -30,7 +30,7 @@ export const getAllArtists = async (token) => {
   };
 
   try {
-    const response = await fetch(`${BASE_URL}artists`, options);
+    const response = await fetch(`${BASE_URL}artists/`, options);
     const data = await response.json();
     console.log(data);
     return data;

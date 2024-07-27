@@ -78,7 +78,7 @@ function UserList({
                           onChange={handleEditUserChange}
                         />
                       </Form.Group>
-                      <Button variant="primary" type="submit">
+                      <Button variant="success" type="submit">
                         SAVE CHANGES
                       </Button>
                     </Form>

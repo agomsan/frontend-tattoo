@@ -14,7 +14,7 @@ const ArtistList = ({
 }) => {
   return (
     <div>
-      <Button variant="primary" className="my-4" onClick={() => setShowArtistForm(true)}>
+      <Button variant="success" className="my-4" onClick={() => setShowArtistForm(true)}>
         CREATE ARTIST
       </Button>
       <Row>
@@ -58,7 +58,7 @@ const ArtistList = ({
                         onChange={handleEditArtistChange} 
                       />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button variant="success" type="submit">
                       SAVE CHANGES
                     </Button>
                   </Form>

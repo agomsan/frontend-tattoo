@@ -56,7 +56,7 @@ export default function Contact() {
             <Form.Control as="textarea" rows={3} placeholder="Your message" />
           </Form.Group>
 
-          <Button variant="primary" type="submit">
+          <Button variant="success" type="submit">
             Submit
           </Button>
         </Form>

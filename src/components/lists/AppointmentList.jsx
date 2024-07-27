@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Button, Form } from "react-bootstrap";
-import { BsFillPencilFill, BsFillTrash3Fill } from "react-icons/bs";
+import { BsFillPencilFill, BsFillTrash3Fill } from "react-icons/bs"; 
 
 const AppointmentList = ({
   appointments,
@@ -10,65 +10,50 @@ const AppointmentList = ({
   handleDeleteAppointmentClick,
   newAppointment,
   handleEditAppointmentChange,
+  handleEditAppointmentSubmit,
   handleCreateAppointment,
 }) => (
   <div>
-    <h3>APPOINTMENT LIST</h3>
+    <h3>APPOINTMENTS</h3>
     {appointments.map((appointment) => (
       <Card key={appointment.id} className="mb-4">
         <Card.Body>
           <Card.Title>
             {new Date(appointment.appointment_date).toLocaleString()}
-            <Button
-              className="ms-2"
-              onClick={() => handleEditAppointmentClick(appointment)}
-            >
+            <Button className="ms-2" onClick={() => handleEditAppointmentClick(appointment.id)}>
               <BsFillPencilFill />
             </Button>
-            <Button
-              className="ms-2"
-              onClick={() => handleDeleteAppointmentClick(appointment.id)}
-            >
+            <Button className="ms-2" onClick={() => handleDeleteAppointmentClick(appointment.id)}>
               <BsFillTrash3Fill />
             </Button>
           </Card.Title>
-          <Card.Text>USER ID {appointment.user.id}</Card.Text>
-          <Card.Text>
-            NAME {appointment.user.first_name} {appointment.user.last_name}
-          </Card.Text>
-          <Card.Text>
-            SERVICE{" "}
-            {appointment.service
-              ? appointment.service.service_name
-              : "NOT ASSIGNED"}
-          </Card.Text>
-          <Card.Text>
-            ARTIST{" "}
-            {appointment.artist ? appointment.artist.name : "NOT ASSIGNED"}
-          </Card.Text>
+          <Card.Text>User ID: {appointment.user.id}</Card.Text>
+          <Card.Text>Name: {appointment.user.first_name} {appointment.user.last_name}</Card.Text>
+          <Card.Text>Service: {appointment.service ? appointment.service.service_name : "Not assigned"}</Card.Text>
+          <Card.Text>Artist: {appointment.artist ? appointment.artist.name : "Not assigned"}</Card.Text>
         </Card.Body>
       </Card>
     ))}
-    <h3>CREATE NEW APPOINTMENT</h3>
+    <h3>Create or update your appointment</h3>
     <Form onSubmit={handleCreateAppointment}>
       <Form.Group controlId="formAppointmentDate">
-        <Form.Label>DATE AND TIME</Form.Label>
+        <Form.Label>Date and Time</Form.Label>
         <Form.Control
-          type="datetime-local"
+          type="date"
           name="appointment_date"
           value={newAppointment.appointment_date}
           onChange={handleEditAppointmentChange}
         />
       </Form.Group>
       <Form.Group controlId="formServiceId">
-        <Form.Label>SERVICE</Form.Label>
+        <Form.Label>Service</Form.Label>
         <Form.Control
           as="select"
           name="service_id"
           value={newAppointment.service_id}
           onChange={handleEditAppointmentChange}
         >
-          <option value="">SELECT SERVICE</option>
+          <option value="">Select Service</option>
           {services.map((service) => (
             <option key={service.id} value={service.id}>
               {service.service_name}
@@ -77,14 +62,14 @@ const AppointmentList = ({
         </Form.Control>
       </Form.Group>
       <Form.Group controlId="formArtistId">
-        <Form.Label>ARTIST</Form.Label>
+        <Form.Label>Artist</Form.Label>
         <Form.Control
           as="select"
           name="artist_id"
           value={newAppointment.artist_id}
           onChange={handleEditAppointmentChange}
         >
-          <option value="">SELECT ARTIST</option>
+          <option value="">Select Artist</option>
           {artists.map((artist) => (
             <option key={artist.id} value={artist.id}>
               {artist.name}
@@ -92,8 +77,8 @@ const AppointmentList = ({
           ))}
         </Form.Control>
       </Form.Group>
-      <Button variant="primary" type="submit">
-        {newAppointment.id ? "UPDATE APPOINTMENT" : "CREATE APPOINTMENT"}
+      <Button variant="success" type="submit">
+        {newAppointment.id ? "Update Appointment" : "Create Appointment"}
       </Button>
     </Form>
   </div>
